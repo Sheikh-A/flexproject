@@ -31,13 +31,13 @@ function App(props) {
 
 
   return (
-    <div className="app">
+    <div className="App">
       <div className="navigation">
         { logged ? null : <NavLink to = '/register'><Button type="danger">Register</Button></NavLink>}
         { logged ? <NavLink to = '/'><Button type="danger" onClick={logout}>Logout</Button></NavLink> : <NavLink to = '/login'><Button type="danger">Login</Button></NavLink>}
         <NavLink to = '/flexdata'><Button type="primary">Clients</Button></NavLink>
         <NavLink to = '/flexshipments'><Button type="primary">Shipments</Button></NavLink>
-        <NavLink to = '/countrieslist'><Button type="primary">View Countries</Button></NavLink>
+        <NavLink to = '/countrieslist'><Button type="primary">Countries</Button></NavLink>
         <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
         <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
         <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
@@ -57,8 +57,9 @@ function App(props) {
 
 
       <Route exact path = '/' render={() =>
-      <div className="welcome">
-        <NavLink to='/login'><img alt="logo of a lock in a hand" src={logo} /></NavLink>
+      <div>
+        <h1 className="logoheader">🄰🄻🄸🄿🄾🅁🅃</h1>
+        <NavLink to='/login'><img className="ship" alt="logo ship" src={logo} /></NavLink>
       </div>
       } />
 
