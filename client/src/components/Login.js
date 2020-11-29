@@ -18,7 +18,7 @@ function Login(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:3300/api/auth/login', user)
+        axios.post('https://aliport.herokuapp.com/api/auth/login', user)
         .then(res => {
             console.log("login post response" , res);
             localStorage.setItem('token', JSON.stringify(res.data.token))

@@ -6,7 +6,7 @@ function CountryList() {
     const [CountryList, setCountryList] = useState([])
 
     useEffect(() => {
-        axiosWithAuth().get('http://localhost:3300/api/countries')
+        axiosWithAuth().get('https://aliport.herokuapp.com/api/countries')
         .then(res => {
             console.log("users post response" , res.title);
             setCountryList(res.data);

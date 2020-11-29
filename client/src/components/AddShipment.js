@@ -18,7 +18,7 @@ const AddShipment = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:3300/api/flex/shipments", formData)
+      .post("https://aliport.herokuapp.com/api/flex/shipments", formData)
       .catch((err) => console.log(err));
     setFormData({
       shipment_name: "",

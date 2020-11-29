@@ -6,7 +6,7 @@ function FlexList() {
     const [FlexList, setFlexList] = useState([])
 
     useEffect(() => {
-        axiosWithAuth().get('http://localhost:3300/api/flex')
+        axiosWithAuth().get('https://aliport.herokuapp.com/api/flex')
         .then(res => {
             console.log("users post response" , res.data);
             setFlexList(res.data);

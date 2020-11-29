@@ -18,7 +18,7 @@ const AddClient = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:3300/api/flex", formData)
+      .post("https://aliport.herokuapp.com/api/flex", formData)
       .catch((err) => console.log(err));
     setFormData({
       client_name: "",

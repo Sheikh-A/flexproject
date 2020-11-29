@@ -19,7 +19,7 @@ function Register(props) {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:3300/api/auth/register', user)
+        axios.post('https://aliport.herokuapp.com/api/auth/register', user)
         .then(res => {
             props.history.push('/login');
         })

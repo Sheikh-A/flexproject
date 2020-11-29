@@ -6,7 +6,7 @@ function FlexShipmentList() {
     const [FlexShipmentList, setFlexShipmentList] = useState([])
 
     useEffect(() => {
-        axiosWithAuth().get('http://localhost:3300/api/flex/shipments')
+        axiosWithAuth().get('https://aliport.herokuapp.com/api/flex/shipments')
         .then(res => {
             console.log("users post response" , res.data);
             setFlexShipmentList(res.data);
