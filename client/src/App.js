@@ -1,10 +1,5 @@
 import React, {useState} from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-  withRouter
-} from 'react-router-dom';
+import {Route, NavLink} from 'react-router-dom';
 import './App.css';
 import Register from './components/Register';
 import Login from './components/Login';
