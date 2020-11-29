@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {axiosWithAuth} from "../utils/axiosWithAuth"
 
-function FlexportShipmentList() {
+function FlexList() {
 
-    const [FlexportShipmentList, setFlexportShipmentList] = useState([])
+    const [FlexList, setFlexList] = useState([])
 
     useEffect(() => {
-        axiosWithAuth().get('http://localhost:3300/api/flexport/shipments')
+        axiosWithAuth().get('http://localhost:3300/api/flex')
         .then(res => {
             console.log("users post response" , res.data);
-            setFlexportShipmentList(res.data);
+            setFlexList(res.data);
         })
         .catch(err => {
             console.log(err)
@@ -19,13 +19,12 @@ function FlexportShipmentList() {
 
   return (
     <div>
-        {(FlexportShipmentList.length > 0 )
-        ? FlexportShipmentList.map(flexdata =>
+        {(FlexList.length > 0 )
+        ? FlexList.map(flexdata =>
             <div key={flexdata.id} className="data-card">
-                <h3>Shipment ID: {flexdata.id}</h3>
-                <h3>Shipment Name: {flexdata.shipment_name}</h3>
-                <h3>Client ID: {flexdata.client_id}</h3>
+                <h3>Client ID: {flexdata.id}</h3>
                 <h3>Client Name: {flexdata.client_name}</h3>
+                <h3>Client Segment: {flexdata.client_segment}</h3>
             </div>
 
         ): localStorage.getItem('token')
@@ -38,4 +37,4 @@ function FlexportShipmentList() {
     );
 }
 
-export default FlexportShipmentList;
+export default FlexList;

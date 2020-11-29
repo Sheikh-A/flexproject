@@ -18,7 +18,7 @@ const AddShipment = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:3300/api/flexport/shipments", formData)
+      .post("http://localhost:3300/api/flex/shipments", formData)
       .catch((err) => console.log(err));
     setFormData({
       shipment_name: "",
@@ -28,7 +28,7 @@ const AddShipment = () => {
   };
   return (
     <div data-testid="data-card">
-      {home ? <Redirect to="/flexportshipments" /> : null}
+      {home ? <Redirect to="/flexshipments" /> : null}
       <h1> Add Shipment</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor="shipment_name">Shipment Name</label>

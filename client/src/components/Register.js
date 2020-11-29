@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import axios from 'axios'
+import axios from 'axios';
 
 function Register(props) {
 
-    
+
 
     const [user, setUser] = useState({
       username: "",
@@ -43,7 +43,7 @@ function Register(props) {
             name="password"
             type="password"
         />
-        <button type="submit">Register</button> 
+        <button type="submit">Register</button>
     </form>
     );
 }

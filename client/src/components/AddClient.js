@@ -18,7 +18,7 @@ const AddClient = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("http://localhost:3300/api/flexport", formData)
+      .post("http://localhost:3300/api/flex", formData)
       .catch((err) => console.log(err));
     setFormData({
       client_name: "",
@@ -28,7 +28,7 @@ const AddClient = () => {
   };
   return (
     <div data-testid="data-card">
-      {home ? <Redirect to="/flexportdata" /> : null}
+      {home ? <Redirect to="/flexdata" /> : null}
       <h1> Add Client</h1>
       <form onSubmit={submitHandler}>
         <label htmlFor="client_name">Client Name</label>

@@ -1,201 +1,73 @@
-# flexproject RESTful APIs with Express
-
-## Topics
-
-- Express Routing
-- Reading Request data from body and URL parameters
-- Sub-routes
-- API design and development.
+# Sprint Challenge: Authentication - Dad Jokes
 
 ## Description
 
-Use `Node.js` and `Express` to build an API that performs _CRUD_ operations on sample data.
+In this challenge, you build a real wise-guy application. _Dad jokes_ are all the rage these days. Currently the application is trying to receive some `Dad Jokes`, however we are locked out.
 
-### Database Persistence Helpers
+## Instructions
 
-The `data` folder contains a database populated with dummy data created by Ali Sheikh.
+**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
+
+This is an individual assessment, please work on it alone. It is an opportunity to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
+
+If the instructions are not clear, please seek support from your TL and Instructor on Slack.
+
+The Minimum Viable Product must be completed in three hours.
+
+Follow these steps to set up and work on your project:
+
+- [x] Create a forked copy of this project.
+- [x] Add your _Team Lead_ as collaborator on Github.
+- [x] Clone your forked version of the Repository.
+- [x] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `firstName-lastName`.
+
+Follow these steps for completing your project.
+
+- [ ] Submit a Pull-Request to merge `firstName-lastName` branch into `master` on your fork. **Please don't make Pull Requests against Lambda's repository**.
+- [ ] Please don't merge your own pull request.
+- [ ] Add your _Team Lead_ as a Reviewer on the Pull-request
+- [ ] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
+
+## Commits
+
+Commit your code regularly and use descriptive messages. This helps both you (in case you ever need to return to old code) and your Team Lead.
+
+## Self-Study/Essay Questions
+
+Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
+
+- [x] What is the purpose of using _sessions_?
+
+Cookies allow us to store information relative to a user's login, and persist in the database. It lets us verify a session without sending around a user's password.
+
+- [x] What does bcrypt do to help us store passwords in a secure manner.
+
+bcrypt hashes passwords. The more hashing, the more work it takes to recover the hashed password.
 
 
-The API
+- [x] What does bcrypt do to slow down attackers?
 
-- `find()`: calling find returns a promise that resolves to an array of all the `posts` contained in the database.
-- `findById()`: this method expects an `id` as it's only parameter and returns the post corresponding to the `id` provided or an empty array if no post with that `id` is found.
-- `insert()`: calling insert passing it a `post` object will add it to the database and return an object with the `id` of the inserted post. The object looks like this: `{ id: 123 }`.
-- `update()`: accepts two arguments, the first is the `id` of the post to update and the second is an object with the `changes` to apply. It returns the count of updated records. If the count is 1 it means the record was updated correctly.
-- `remove()`: the remove method accepts an `id` as its first parameter and upon successfully deleting the post from the database it returns the number of records deleted.
-- `findPostComments()`: the findPostComments accepts a `postId` as its first parameter and returns all comments on the post associated with the post id.
-- `findCommentById()`: accepts an `id` and returns the comment associated with that id.
-- `insertComment()`: calling insertComment while passing it a `comment` object will add it to the database and return an object with the `id` of the inserted comment. The object looks like this: `{ id: 123 }`. This method will throw an error if the `post_id` field in the `comment` object does not match a valid post id in the database.
+Hashes are rudimentary changes on a number that take time for a computer to compute. It prevents the password from being displayed in plaintext. Also it adds salt or a private secret to act like a pgp private key.
 
-Now that we have a way to add, update, remove and retrieve data from the provided database, it is time to work on the API.
+- [x] What are the three parts of the JSON Web Token?
 
-### Blog Post Schema
+Header - info about encoding , Payload - application data encoded, and Signature - allows us to maitain validity, prevents tampering
 
-A Blog Post in the database has the following structure:
+## Minimum Viable Product
 
-```js
-{
-  title: "The post title", // String, required
-  contents: "The post contents", // String, required
-  created_at: Mon Aug 14 2017 12:50:16 GMT-0700 (PDT) // Date, defaults to current date
-  updated_at: Mon Aug 14 2017 12:50:16 GMT-0700 (PDT) // Date, defaults to current date
-}
-```
+Implement an User Authentication System. Hash user's passwords before saving them to the database. Use `JSON Web Tokens` or `Sessions and Cookies` to persist authentication across requests.
 
-### Comment Schema
+- [x] Implement the `register` and `login` functionality inside `/auth/auth-router.js`. A `user` has `username` and `password`. Both properties are required.
+- [x] Implement the `authenticate` middleware inside `/auth/authenticate-middleware.js`.
+- [x] Write a **minimum o 2 tests** per API endpoint. Write more tests if you have time.
 
-A Comment in the database has the following structure:
+**Note**: the database already has the users table, but if you run into issues, the migrations are available.
 
-```js
-{
-  text: "The text of the comment", // String, required
-  post_id: "The id of the associated post", // Integer, required, must match the id of a post entry in the database
-  created_at: Mon Aug 14 2017 12:50:16 GMT-0700 (PDT) // Date, defaults to current date
-  updated_at: Mon Aug 14 2017 12:50:16 GMT-0700 (PDT) // Date, defaults to current date
-}
-```
+## Stretch Problem
 
-### Minimum Viable Product
+Build a front end to show the jokes.
 
-- Add the code necessary to implement the endpoints listed below.
-- Separate the endpoints that begin with `/api/posts` into a separate `Express Router`.
-
-### Endpoints
-
-Configure the API to handle to the following routes:
-
-| Method | Endpoint                | Description                                                                                                                                                                 |
-| ------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /api/posts              | Creates a post using the information sent inside the `request body`.                                                                                                        |
-| POST   | /api/posts/:id/comments | Creates a comment for the post with the specified id using information sent inside of the `request body`.                                                                   |
-| GET    | /api/posts              | Returns an array of all the post objects contained in the database.                                                                                                         |
-| GET    | /api/posts/:id          | Returns the post object with the specified id.                                                                                                                              |
-| GET    | /api/posts/:id/comments | Returns an array of all the comment objects associated with the post with the specified id.                                                                                 |
-| DELETE | /api/posts/:id          | Removes the post with the specified id and returns the **deleted post object**. You may need to make additional calls to the database in order to satisfy this requirement. |
-| PUT    | /api/posts/:id          | Updates the post with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
-
-#### Endpoint Specifications
-
-When the client makes a `POST` request to `/api/posts`:
-
-- If the request body is missing the `title` or `contents` property:
-
-  - cancel the request.
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
-
-- If the information about the _post_ is valid:
-
-  - save the new _post_ the the database.
-  - return HTTP status code `201` (Created).
-  - return the newly created _post_.
-
-- If there's an error while saving the _post_:
-  - cancel the request.
-  - respond with HTTP status code `500` (Server Error).
-  - return the following JSON object: `{ error: "There was an error while saving the post to the database" }`.
-
-When the client makes a `POST` request to `/api/posts/:id/comments`:
-
-- If the _post_ with the specified `id` is not found:
-
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-- If the request body is missing the `text` property:
-
-  - cancel the request.
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide text for the comment." }`.
-
-- If the information about the _comment_ is valid:
-
-  - save the new _comment_ the the database.
-  - return HTTP status code `201` (Created).
-  - return the newly created _comment_.
-
-- If there's an error while saving the _comment_:
-  - cancel the request.
-  - respond with HTTP status code `500` (Server Error).
-  - return the following JSON object: `{ error: "There was an error while saving the comment to the database" }`.
-
-When the client makes a `GET` request to `/api/posts`:
-
-- If there's an error in retrieving the _posts_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The posts information could not be retrieved." }`.
-
-When the client makes a `GET` request to `/api/posts/:id`:
-
-- If the _post_ with the specified `id` is not found:
-
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-- If there's an error in retrieving the _post_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The post information could not be retrieved." }`.
-
-When the client makes a `GET` request to `/api/posts/:id/comments`:
-
-- If the _post_ with the specified `id` is not found:
-
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-- If there's an error in retrieving the _comments_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The comments information could not be retrieved." }`.
-
-When the client makes a `DELETE` request to `/api/posts/:id`:
-
-- If the _post_ with the specified `id` is not found:
-
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-- If there's an error in removing the _post_ from the database:
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The post could not be removed" }`.
-
-When the client makes a `PUT` request to `/api/posts/:id`:
-
-- If the _post_ with the specified `id` is not found:
-
-  - return HTTP status code `404` (Not Found).
-  - return the following JSON object: `{ message: "The post with the specified ID does not exist." }`.
-
-- If the request body is missing the `title` or `contents` property:
-
-  - cancel the request.
-  - respond with HTTP status code `400` (Bad Request).
-  - return the following JSON response: `{ errorMessage: "Please provide title and contents for the post." }`.
-
-- If there's an error when updating the _post_:
-
-  - cancel the request.
-  - respond with HTTP status code `500`.
-  - return the following JSON object: `{ error: "The post information could not be modified." }`.
-
-- If the post is found and the new information is valid:
-
-  - update the post document in the database using the new information sent in the `request body`.
-  - return HTTP status code `200` (OK).
-  - return the newly updated _post_.
-
-## Stretch Problems
-
-To work on the stretch problems you'll need to enable the `cors` middleware. Follow these steps:
-
-- add the `cors` npm module: `npm i cors`.
-- add `server.use(cors())` after `server.use(express.json())`.
-
-Create a new React application and connect it to your server:
-
-- Use `create-react-app` to create an application inside the root folder, name it `client`.
-- From the React application connect to the `/api/posts` endpoint in the API and show the list of posts.
-- Style the list of posts however you see fit.
+- [x] Add a React client that connects to the API and has pages for `Sign Up`, `Sign In` and showing a list of `Jokes`.
+- [x] Once you have the functionality down, style it!

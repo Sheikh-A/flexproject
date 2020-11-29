@@ -24,14 +24,19 @@ function CountryList() {
   return (
     <div>
         {(CountryList.length > 0 )
-        ? CountryList.map(joke =>
-            <div key={joke.id} className="data-card">
-                <h2>{joke.name}</h2>
+        ? CountryList.map(country =>
+            <div key={country.id} className="data-card">
+                <h2>{country.name}</h2>
+                <img src={country.flag} alt="flag" className="country-image"/>
+                <h3>Country Code: {country.alpha3Code}</h3>
+                <h3>Country Region: {country.region}</h3>
+                <h3>Country Subregion: {country.subregion}</h3>
+
             </div>
 
         ): localStorage.getItem('token')
         ? <h1>Loading....</h1>
-        : <h1>Jokes on you! You need to log in!</h1>
+        : <h1>Countries! You need to log in!</h1>
     }
 
     </div>

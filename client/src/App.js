@@ -8,14 +8,14 @@ import {
 import './App.css';
 import Register from './components/Register';
 import Login from './components/Login';
-import StudioGibli from './components/StudioGibli';
 import Countries from './components/Countrys';
-import Flexport from './components/Flexport';
-import FlexportShipments from './components/FlexportShipments';
+import Flex from './components/Flex';
+import FlexShipments from './components/FlexShipments';
 import AddClient from './components/AddClient.js';
 import logo from './assets/logo.png';
 import AddShipment from './components/AddShipment';
 import Button from './Button';
+import PetGrid from "./components/PetGrid";
 
 
 
@@ -33,25 +33,27 @@ function App(props) {
   return (
     <div className="app">
       <div className="navigation">
-        { logged ? null : <NavLink to = '/register'><button>Register</button></NavLink>}
-        { logged ? <NavLink to = '/'><Button type="danger" onClick={logout}>Logout</Button></NavLink> : <NavLink to = '/login'><button>Login</button></NavLink>}
-        <NavLink to = '/flexportdata'><Button type="primary">Clients</Button></NavLink>
-        <NavLink to = '/flexportshipments'><Button type="success">Shipments</Button></NavLink>
+        { logged ? null : <NavLink to = '/register'><Button type="danger">Register</Button></NavLink>}
+        { logged ? <NavLink to = '/'><Button type="danger" onClick={logout}>Logout</Button></NavLink> : <NavLink to = '/login'><Button type="danger">Login</Button></NavLink>}
+        <NavLink to = '/flexdata'><Button type="primary">Clients</Button></NavLink>
+        <NavLink to = '/flexshipments'><Button type="primary">Shipments</Button></NavLink>
         <NavLink to = '/countrieslist'><Button type="primary">View Countries</Button></NavLink>
-        <NavLink to = '/StudioGibli'><Button type="success">Studio Gibli</Button></NavLink>
-        <NavLink to = '/flexCustomer'><Button type="primary">Add Client</Button></NavLink>
+        <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
         <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
+        <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
+
 
 
       </div>
       <Route path = '/register' component = {Register} />
       <Route path = '/login' render = {(props) => <Login {...props} setLogged={setLogged} />} />
-      <Route path = '/StudioGibli' render = {(props) => <StudioGibli {...props} />} />
+
       <Route path = '/countrieslist' render = {(props) => <Countries {...props} />} />
-      <Route path = '/flexportdata' render = {(props) => <Flexport {...props} />} />
-      <Route path = '/flexportshipments' render = {(props) => <FlexportShipments {...props} />} />
+      <Route path = '/flexdata' render = {(props) => <Flex {...props} />} />
+      <Route path = '/flexshipments' render = {(props) => <FlexShipments {...props} />} />
       <Route path = '/flexCustomer' render = {(props) => <AddClient {...props} />} />
       <Route path = '/flexShipment' render = {(props) => <AddShipment {...props} />} />
+      <Route path = '/flexpups' render = {(props) => <PetGrid {...props} />} />
 
 
       <Route exact path = '/' render={() =>
