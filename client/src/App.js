@@ -6,9 +6,9 @@ import Login from './components/Login';
 import Countries from './components/Countrys';
 import Flex from './components/Flex';
 import FlexShipments from './components/FlexShipments';
-import AddClient from './components/AddClient.js';
+//import AddClient from './components/AddClient.js';
 import logo from './assets/logo.png';
-import AddShipment from './components/AddShipment';
+//import AddShipment from './components/AddShipment';
 import Button from './Button';
 import PetGrid from "./components/PetGrid";
 
@@ -24,7 +24,12 @@ function App(props) {
       setLogged(false)
     }
 
+    // <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
+    //     <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
 
+
+    // <Route path = '/flexCustomer' render = {(props) => <AddClient {...props} />} />
+    // <Route path = '/flexShipment' render = {(props) => <AddShipment {...props} />} />
   return (
     <div className="App">
       <div className="navigation">
@@ -33,8 +38,7 @@ function App(props) {
         <NavLink to = '/flexdata'><Button type="primary">Clients</Button></NavLink>
         <NavLink to = '/flexshipments'><Button type="primary">Shipments</Button></NavLink>
         <NavLink to = '/countrieslist'><Button type="primary">Countries</Button></NavLink>
-        <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
-        <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
+
         <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
 
 
@@ -46,8 +50,7 @@ function App(props) {
       <Route path = '/countrieslist' render = {(props) => <Countries {...props} />} />
       <Route path = '/flexdata' render = {(props) => <Flex {...props} />} />
       <Route path = '/flexshipments' render = {(props) => <FlexShipments {...props} />} />
-      <Route path = '/flexCustomer' render = {(props) => <AddClient {...props} />} />
-      <Route path = '/flexShipment' render = {(props) => <AddShipment {...props} />} />
+
       <Route path = '/flexpups' render = {(props) => <PetGrid {...props} />} />
 
 
