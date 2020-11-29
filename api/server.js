@@ -20,5 +20,9 @@ server.use('/api/countries', authenticate, countryRouter);
 server.use('/api/flex', authenticate, flexRouter);
 //server.use('/api/clients', authenticate, shippingRouter);
 
+server.get('/', (req, res) => {
+    res.status(200).send((`<h1>API: Up Up and Away, welcome Flexporters!</h1>`))
+})
+
 
 module.exports = server;
