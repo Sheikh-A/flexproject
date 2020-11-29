@@ -9,7 +9,7 @@ import FlexShipments from './components/FlexShipments';
 import AddClient from './components/AddClient.js';
 import logo from './assets/logo.png';
 import AddShipment from './components/AddShipment';
-
+import Button from './Button.js';
 import PetGrid from "./components/PetGrid";
 
 
@@ -24,8 +24,8 @@ function App(props) {
       setLogged(false)
     }
 
-    // <NavLink to = '/flexCustomer'><button type="success">Add Client</button></NavLink>
-    //     <NavLink to = '/flexShipment'><button type="success">Add Shipment</button></NavLink>
+    // <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
+    //     <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
 
 
     // <Route path = '/flexCustomer' render = {(props) => <AddClient {...props} />} />
@@ -33,14 +33,14 @@ function App(props) {
   return (
     <div className="App">
       <div className="navigation">
-        { logged ? null : <NavLink to = '/register'><button>Register</button></NavLink>}
-        { logged ? <NavLink to = '/'><button onClick={logout}>Logout</button></NavLink> : <NavLink to = '/login'><button>Login</button></NavLink>}
-        <NavLink to = '/flexdata'><button >Clients</button></NavLink>
-        <NavLink to = '/flexshipments'><button >Shipments</button></NavLink>
-        <NavLink to = '/flexCustomer'><button type="success">Add Client</button></NavLink>
-        <NavLink to = '/countrieslist'><button >Countries</button></NavLink>
-        <NavLink to = '/flexShipment'><button type="success">Add Shipment</button></NavLink>
-        <NavLink to = '/flexpups'><button>Flex Pups!</button></NavLink>
+        { logged ? null : <NavLink to = '/register'><Button type="danger">Register</Button></NavLink>}
+        { logged ? <NavLink to = '/'><Button type="danger" onClick={logout}>Logout</Button></NavLink> : <NavLink to = '/login'><Button type="danger">Login</Button></NavLink>}
+        <NavLink to = '/flexdata'><Button type="primary" >Clients</Button></NavLink>
+        <NavLink to = '/flexshipments'><Button type="primary" >Shipments</Button></NavLink>
+        <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
+        <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
+        <NavLink to = '/countrieslist'><Button type="primary" >Countries</Button></NavLink>
+        <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
 
 
 
