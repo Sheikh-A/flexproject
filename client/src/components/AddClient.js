@@ -27,27 +27,41 @@ const AddClient = () => {
     setHome(true);
   };
   return (
-    <div data-testid="data-card">
+    <div className="registerContainer negative-top-margin-adjustment">
       {home ? <Redirect to="/flexdata" /> : null}
-      <h1> Add Client</h1>
+      <div>
+        <div>
+          <h1> Add Client</h1>
+        </div>
       <form onSubmit={submitHandler}>
-        <label htmlFor="client_name">Client Name</label>
-        <input
-          name="client_name"
-          type="text"
-          value={formData.client_name}
-          onChange={changeHandler}
-        />
-        <label htmlFor="client_segment">Client Segment</label>
-        <input
-          name="client_segment"
-          type="text"
-          value={formData.client_segment}
-          onChange={changeHandler}
-        />
-        <button type="submit">Add</button>
+        <div>
+          <div>
+            <div>
+              <label htmlFor="client_name">Client Name</label>
+              <input
+                id="firstName"
+                name="client_name"
+                type="text"
+                value={formData.client_name}
+                onChange={changeHandler}
+              />
+            </div>
+            <div>
+              <label htmlFor="client_segment">Client Segment</label>
+              <input
+                id="firstName"
+                name="client_segment"
+                type="text"
+                value={formData.client_segment}
+                onChange={changeHandler}
+              />
+            </div>
+          </div>
+        </div>
+        <button className="blackButton" type="submit">Add</button>
       </form>
     </div>
+  </div>
   );
 };
 

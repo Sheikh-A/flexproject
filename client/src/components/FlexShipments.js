@@ -30,7 +30,7 @@ function FlexShipmentList() {
 
         ): localStorage.getItem('token')
         ? <h1>Loading....</h1>
-        : <h1>Jokes on you! You need to log in!</h1>
+        : <h1>You need to log in!</h1>
     }
 
     </div>

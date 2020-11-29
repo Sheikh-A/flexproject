@@ -27,27 +27,41 @@ const AddShipment = () => {
     setHome(true);
   };
   return (
-    <div data-testid="data-card">
+    <div className="registerContainer negative-top-margin-adjustment">
       {home ? <Redirect to="/flexshipments" /> : null}
-      <h1> Add Shipment</h1>
+      <div>
+        <div>
+          <h1> Add Shipment</h1>
+        </div>
       <form onSubmit={submitHandler}>
-        <label htmlFor="shipment_name">Shipment Name</label>
-        <input
-          name="shipment_name"
-          type="text"
-          value={formData.shipment_name}
-          onChange={changeHandler}
-        />
-        <label htmlFor="client_id">Client ID</label>
-        <input
-          name="client_id"
-          type="number"
-          value={formData.client_id}
-          onChange={changeHandler}
-        />
-        <button type="submit">Add</button>
+        <div>
+          <div>
+            <div>
+              <label htmlFor="shipment_name">Shipment Name</label>
+              <input
+                id="firstName"
+                name="shipment_name"
+                type="text"
+                value={formData.shipment_name}
+                onChange={changeHandler}
+              />
+            </div>
+            <div>
+              <label htmlFor="client_id">Client ID</label>
+              <input
+                id="firstName"
+                name="client_id"
+                type="number"
+                value={formData.client_id}
+                onChange={changeHandler}
+              />
+            </div>
+          </div>
+        </div>
+        <button className="blackButton" type="submit">Add</button>
       </form>
     </div>
+  </div>
   );
 };
 
