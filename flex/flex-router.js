@@ -3,7 +3,7 @@ const { Client } = require('knex');
 const { client } = require('../database/dbConfig.js');
 const dbConfig = require('../database/dbConfig.js');
 
-const Clients = require("./flexport-model.js");
+const Clients = require("./flex-model.js");
 
 const router = express.Router();
 
