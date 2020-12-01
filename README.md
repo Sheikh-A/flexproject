@@ -6,10 +6,10 @@
 #Backend Deployed here: https://aliport.herokuapp.com/
 
 #Endpoints (must be logged in):
-https://aliport.herokuapp.com/api/auth
-https://aliport.herokuapp.com/api/countries (need to be logged in)
-https://aliport.herokuapp.com/api/flex      (need to be logged in see additional CRUD endpoints below)
-https://aliport.herokuapp.com/api/users     (need to be logged in)
+- https://aliport.herokuapp.com/api/auth
+- https://aliport.herokuapp.com/api/countries (need to be logged in)
+- https://aliport.herokuapp.com/api/flex      (need to be logged in see additional CRUD endpoints below)
+- https://aliport.herokuapp.com/api/users     (need to be logged in)
 
 
 
