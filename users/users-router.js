@@ -2,16 +2,16 @@ const router = require("express").Router();
 const Users = require("./users-model.js");
 const checkRole = require("../auth/check-role-middleware.js");
 
-router.get("/", (req,res) => {
-    Users.find()
-      .then(users => {
-          res.json(users);
-      })
-      .catch(err => res.send(err));
-});
+// router.get("/", (req,res) => {
+//     Users.find()
+//       .then(users => {
+//           res.json(users);
+//       })
+//       .catch(err => res.send(err));
+// });
 
 const admin = "admin";
-const sales = "sales";
+
 
 router.get("/admin", checkRole(admin), (req,res) => {
     Users.find()
