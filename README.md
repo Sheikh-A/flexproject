@@ -13,9 +13,6 @@
 
 
 
-
-
-###Flex API
 ## Authentication System
 - Authentication.
 - Express Middleware.
