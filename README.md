@@ -1,11 +1,11 @@
 # Flex RESTful APIs with Express
 # Author: Ali Sheikh
 
-Frontend Deployed here: https://aliport.vercel.app/
+#Frontend Deployed here: https://aliport.vercel.app/
 
-Backend Deployed here: https://aliport.herokuapp.com/
-\n
-Endpoints (must be logged in):
+#Backend Deployed here: https://aliport.herokuapp.com/
+
+#Endpoints (must be logged in):
 https://aliport.herokuapp.com/api/auth
 https://aliport.herokuapp.com/api/countries (need to be logged in)
 https://aliport.herokuapp.com/api/flex      (need to be logged in see additional CRUD endpoints below)
