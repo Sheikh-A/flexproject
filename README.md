@@ -119,10 +119,9 @@ Flex API Endpoints
 | GET    | /api/flex/:id          | Returns the client object with the specified id.                                                                                                                              |
 | GET    | /api/flex/shipments/:id | Returns an array of all the Shipment objects associated with the client with the specified id.                                                                                 |
 | DELETE | /api/flex/:id          | Removes the client with the specified id and returns the deleted client id.
- |
-| DELETE | /api/flex/:id          | Removes the client with the specified id and returns the deleted client id.
- |
-| PUT    | /api/flex/:id          | Updates the client with the specified `id` using data from the `request body`. Returns the modified document.                                          |
+                                                |
+
+| PUT    | /api/flex/:id          | Updates the client with the specified `id` using data from the `request body`. Returns the modified document.                                                                   |
 
 
 ###FRONT END
