@@ -6,6 +6,8 @@ exports.up = function(knex) {
             tbl.increments();
             tbl.string('client_name',255).notNullable().unique();
             tbl.string('client_segment',255).notNullable();
+            tbl.timestamps(true,true);
+
         })
         .createTable('shipments', tbl => {
             tbl.increments();
@@ -17,6 +19,7 @@ exports.up = function(knex) {
               .inTable('clients')
               .onUpdate('CASCADE')
               .onDelete('CASCADE');
+            tbl.timestamps(true,true);
         })
   )};
 
