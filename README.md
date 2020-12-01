@@ -1,12 +1,26 @@
 # Flex RESTful APIs with Express
 # Author: Ali Sheikh
 
+Frontend Deployed here: https://aliport.vercel.app/
+
+Backend Deployed here: https://aliport.herokuapp.com/
+Endpoints (must be logged in):
+https://aliport.herokuapp.com/api/auth
+https://aliport.herokuapp.com/api/countries (need to be logged in)
+https://aliport.herokuapp.com/api/flex      (need to be logged in see additional CRUD endpoints below)
+https://aliport.herokuapp.com/api/users     (need to be logged in)
+
+
+
+
+
 ###Flex API
 ## Authentication System
 - Authentication.
 - Express Middleware.
 - JSON Web Tokens (JWTs).
 - Hashing Passwords.
+- Admin Control
 
 User Authentication System: Hashs user's passwords before saving it to the database. Uses `JSON Web Tokens` to persist authentication across requests.
 
@@ -15,15 +29,18 @@ User Authentication System: Hashs user's passwords before saving it to the datab
 
 Use **JSON Web Tokens** to keep users authenticated across requests.
 
+Admin Control: Uses middleware to check the "department" of user to see if they are "admin". Only admin can delete users & clients & only admin can see all users.
+
 ### Design and build the following endpoints.
 
 | Method | Endpoint      | Description                                                                                                                                                                                                                                                            |
 | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | POST   | /api/auth/register | Creates a `user` using the information sent inside the `body` of the request. **Hash the password** before saving the user to the database.                                                                                                                            |
 | POST   | /api/auth/login    | Use the credentials sent inside the `body` to authenticate the user. On successful login, create a new JWT with the user id as the subject and send it back to the client. If login fails, respond with the correct status code and the message: 'Incorrect Login!' |
-| GET    | /api/users    | If the user is logged in, respond with an array of all the users contained in the database. If the user is not logged in respond with the correct status code and the message: 'Incorrect Login!'.
+| GET    | /api/users/admin    | If the user is logged in, respond with an array of all the users contained in the database. Only admin can view users.
+| DELETE | /api/users/admin/:id    | If the user is logged in as admin, will delete user with specified id.
 
-## API Overview:
+## Backend API Overview:
 
 - Express Routing
 - Reading Request data from body and URL parameters
@@ -106,3 +123,14 @@ Flex API Endpoints
 | DELETE | /api/flex/:id          | Removes the client with the specified id and returns the **deleted client object**.
  |
 | PUT    | /api/flex/:id          | Updates the client with the specified `id` using data from the `request body`. Returns the modified document, **NOT the original**.                                           |
+
+
+###FRONT END
+- Front end deployed using create-react-app
+- Uses Axios for endpoints
+    -error handling for all async (axios/AJAX) calls
+- React Forms
+- Fetches data from Flex API above, link is from Heroku
+- Uses React Router
+- Styled-Components
+- Dog CEO API built into front-end for fun, this is accessable without logging in.

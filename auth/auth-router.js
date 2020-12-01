@@ -6,6 +6,11 @@ const secrets = require("../config/secrets.js"); //todo 6
 const Users = require("../users/users-model.js");
 const { isValid } = require("../users/users-service");
 
+
+router.get('/', (req, res) => {
+    res.status(200).send((`<h1>Auth Router up and running! Use Postman or https://aliport.vercel.app/ to post</h1>`))
+});
+
 router.post("/register", (req, res) => {
     const credentials = req.body;
 
