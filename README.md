@@ -25,7 +25,7 @@ User Authentication System: Hashs user's passwords before saving it to the datab
 - Implements the `register` and `login` functionality inside `/auth/auth-router.js`. A `user` has `username` and `password`. Both properties are required.
 - Implements the `authenticate` middleware inside `/auth/authenticate-middleware.js`.
 
-Use **JSON Web Tokens** to keep users authenticated across requests.
+Uses **JSON Web Tokens** to keep users authenticated across requests.
 
 Admin Control: Uses middleware to check the "department" of user to see if they are "admin". Only admin can delete users & clients & only admin can see all users.
 
@@ -46,7 +46,7 @@ Admin Control: Uses middleware to check the "department" of user to see if they 
 - API endpoints & HTTP Codes
 ## Description
 
-Use `Node.js` and `Express` to build a sample Flex API that performs _CRUD_ operations on `dummy data`.
+Uses `Node.js` and `Express` to build a sample Flex API that performs _CRUD_ operations on `dummy data`.
 
 ### Database Persistence Helpers
 
