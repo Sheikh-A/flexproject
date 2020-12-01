@@ -12,7 +12,7 @@ describe("auth router", () => {
         await db("users").truncate();
     });
 
-    const userData = { username: "user", password: "pass" };
+    const userData = { username: "user2", password: "pass" };
 
     it("should return a status code 201", () => {
         let response
@@ -23,7 +23,7 @@ describe("auth router", () => {
     });
 
     it('should return a welcome message', () => {
-        const message = "new user created: user"
+        const message = "new user created: user2"
         let response
         return request(server).post('/api/auth/register').send(userData).then(res => {
             response = res
@@ -33,7 +33,7 @@ describe("auth router", () => {
   });
 
   describe('Login', () => {
-    const userData = { username: "user", password: "pass" };   
+    const userData = { username: "user2", password: "pass" };
 
     it('should return 200', () => {
         let response
@@ -44,7 +44,7 @@ describe("auth router", () => {
     })
 
     it('should return a welcome message', () => {
-        let message = 'Welcome user'
+        let message = 'Welcome to our API'
         let response
         return request(server).post('/api/auth/login').send(userData).then(res => {
             response = res

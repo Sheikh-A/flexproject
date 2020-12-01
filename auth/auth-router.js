@@ -20,7 +20,7 @@ router.post("/register", (req, res) => {
         //save User to DB
         Users.add(credentials)
           .then(user => {
-              res.status(201).json({ data: user });
+              res.status(201).json({message: `new user created: ${user.username}`, data: user});
           })
           .catch(error => {
               res.status(500).json({ message: error.message });
@@ -47,7 +47,7 @@ router.post("/login", (req,res) => {
               if(user && bcryptjs.compareSync(password, user.password)) {
                   //todo 2
                   const token = generateToken(user);
-                  res.status(200).json({ message: "Welcome ot our API", token });
+                  res.status(200).json({ message: "Welcome to our API", token });
               } else {
                   res.status(401).json({ message: "Invalid credentials" });
               }
