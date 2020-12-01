@@ -2,6 +2,7 @@ const express = require('express');
 const { Client } = require('knex');
 const { client } = require('../database/dbConfig.js');
 const dbConfig = require('../database/dbConfig.js');
+const checkRole = require("../auth/check-role-middleware.js");
 
 const Clients = require("./flex-model.js");
 
@@ -94,63 +95,9 @@ router.put("/:id", (req, res) => {
     }
 });
 
+const admin = "admin";
 
-// router.put("/:id", (req, res) => {
-
-//     const { id }  = req.params;
-//     const {client_name, client_segment} = req.body;
-//     const changes = req.body;
-
-
-//     !client_name || !client_segment
-//     ? res.status(400).json({ errorMessage: "Please provice client name and segment" })
-
-//     : Clients
-//     .update(id, changes)
-//     .then(client => {
-//         client ?
-//           res.status(200).json(changes):
-//           res.status(404).json({message: "Client with ID does not exist"});
-//     })
-//     .catch(err => {
-//         res.status(500).json({ error: "Client info could not be modified" });
-//     });
-// });
-
-// router.put('/:id', (req, res) => {
-//     const { id } = req.params;
-//     const changes = req.body;
-
-//     Clients.update(changes, id)
-//       .then(count => {
-//           if(count) {
-//               res.json({ update: count });
-//           } else {
-//               res.status(404).json({ message: `Count not find user with given id: ${id}` });
-//           }
-//       })
-//       .catch( err => {
-//           res.status(500).json({ message: 'Failed to update user' });
-//       });
-// });
-
-// router.delete('/:id', (req, res) => {
-//     const { id } = req.params;
-
-//     Clients.remove(id)
-//       .then(count => {
-//           if(count) {
-//               res.json({ removed: count });
-//           } else {
-//               res.status(404).json({ message: 'Could not find user with given id' });
-//           }
-//       })
-//       .catch(err => {
-//           res.status(500).json({ message: 'Failed to delete user' });
-//       });
-// });
-
-router.delete("/:id", (req, res) => {
+router.delete("/:id", checkRole(admin), (req, res) => {
     const id = req.params.id;
 
     Clients
@@ -191,29 +138,6 @@ router.get('/shipments/:id', (req, res) => {
 
 });
 
-//todo WORKING
-// router.post("/shipments", (req, res) => {
-//     const { shipment_name, client_id } = req.body;
-
-//     console.log(Clients.findById(client_id));
-
-//     if(!shipment_name || !(Clients.findById(client_id))) {
-//         res.status(400).json({ errorMessage: "Please provide client name and segment" });
-//     } else if ((Clients.findById(client_id)) == 0) {
-//         res.status(400).json({ errorMessage: "Cliend ID does not exist" });
-//     } else {
-//         Clients.insertShipment(req.body)
-//           .then(shipment => {
-//             shipment ?
-//               res.status(201).json(req.body) :
-//               res.status(404).json({message: "Error"})
-//           })
-//           .catch(error => {
-//             console.log(error);
-//             res.status(500).json({ error: "Either client_name already exists or there was an error while saving client to DB" });
-//           });
-//     }
-// });
 
 
 router.post("/shipments", (req, res) => {

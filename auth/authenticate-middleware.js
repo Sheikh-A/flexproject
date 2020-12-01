@@ -1,24 +1,31 @@
-/* 
-  complete the middleware code to check if the user is logged in
-  before granting access to the next middleware/route handler
-*/
+const jwt = require("jsonwebtoken");
+const secrets = require("../config/secrets.js");
 
-const jwt = require('jsonwebtoken')
-const secret = require('../config/secrets')
 
 module.exports = (req, res, next) => {
-  const token = req.headers.authorization
 
-  if (token) {
-    jwt.verify(token, secret.jwtSecret, (err, decodedToken) => {
-      if (err) {
-        res.status(401).json({message: 'INVALID TOKEN: THE FBI HAS BEEN ALEERTED'});
-      } else {
-        req.decodedToken = decodedToken;
-        next();
-      }
-    })
-  } else {
-    res.status(401).json({ you: 'shall not pass!' });
-  }
+    try {
+
+// add code here to verify users are logged in (10)
+  //********************* REMEMBER TO SPLIT*********** */
+  //const [authType, token] = req.headers.authorization.split(" ");
+        const token = req.headers.authorization;
+
+        if (token) {
+            jwt.verify(token, secrets.jwtSecret, (err, decodedToken) => {
+                if(err) {
+                    res.status(401).json({ message: "YOU SHALL NOT PASS!" });
+                } else {
+                    req.decodedJwt = decodedToken;
+                    console.log(req.decodedJwt);
+                    next();
+                }
+            })
+        } else {
+            throw new Error('invalid auth data');
+        }
+    } catch(err) {
+        res.status(401).json({ error: err.message });
+    }
+
 };
