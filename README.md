@@ -148,7 +148,7 @@ Flex API Endpoints
 | PUT    | /api/flex/:id          | Updates the client with the specified `id` using data from the `request body`. Returns the modified document.                   
 
 
-###FRONT END
+### Front End
 - Front end deployed using create-react-app
 - Uses Axios for endpoints
     -error handling for all async (axios/AJAX) calls
