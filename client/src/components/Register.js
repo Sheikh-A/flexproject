@@ -9,7 +9,7 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 
 const signupSchema = Yup.object().shape({
   username: Yup.string()
-    .min(2, '**Too Short 2 characters min!')
+    .min(4, '**Too Short 2 characters min!')
     .max(20, '**Too Long 20 characters max!')
     .required('**Name is required'),
   password: Yup.string()
@@ -34,7 +34,7 @@ const SignupForm = (props) => {
       .post(`https://aliport.herokuapp.com/api/auth/register`, values)
       .then((res) => {
         window.localStorage.setItem('token', res.data.token);
-//        window.localStorage.setItem('userId', res.data.user_id); // needed for TaskContext to make axios requests for tasks
+        window.localStorage.setItem('id', res.data.id); // needed for TaskContext to make axios requests for tasks
         props.history.push('/login');
       })
       .catch((err) => {
