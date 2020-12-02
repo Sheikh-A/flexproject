@@ -147,12 +147,30 @@ Flex API Endpoints
 | DELETE | /api/flex/:id          | Removes the client with the specified id and returns the deleted client id                                            |
 | PUT    | /api/flex/:id          | Updates the client with the specified `id` using data from the `request body`. Returns the modified document.                   
 
+### SAMPLE END POINTS TO USE WITH POSTMAN / INSOMNIA
+-GET  |  https://aliport.herokuapp.com/api/flex
+-GET  |  https://aliport.herokuapp.com/api/flex/1
+-GET  |  https://aliport.herokuapp.com/api/flex/shipments/
+-GET  |  https://aliport.herokuapp.com/api/flex/shipments/3
+-POST |  https://aliport.herokuapp.com/api/flex
+-POST |  https://aliport.herokuapp.com/api/flex/shipments
+-DEL  |  https://aliport.herokuapp.com/api/flex/3 (must be admin)
+-PUT  |  https://aliport.herokuapp.com/api/flex/1
+
+Auth:
+-POST | https://aliport.herokuapp.com/api/auth/login
+-POST | https://aliport.herokuapp.com/api/auth/register
+-POST | https://aliport.herokuapp.com/api/auth/login (use Authorization header + token generated if success)
+-GET  | https://aliport.herokuapp.com/api/users/admin (must be admin)
+-DEL  | https://aliport.herokuapp.com/api/users/admin/2 (must be admin)
+
 
 ### Front End
-- Front end deployed using create-react-app
-- Uses Axios for endpoints
+- Front end is built & deployed using create-react-app (deployed via Vercel)
+- Uses Axios & AxiosWithAuth for endpoints
     -error handling for all async (axios/AJAX) calls
 - React Forms
+- Adding in Form Validation using Yup / Formik for the Registration page 
 - Fetches data from Flex API above, link is from Heroku
 - Uses React Router
 - Styled-Components
