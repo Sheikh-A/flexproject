@@ -23,7 +23,7 @@ server.use('/api/flex', authenticate, flexRouter);
 server.use("/api/users", authenticate, usersRouter);
 
 server.get('/', (req, res) => {
-    res.status(200).send((`<h1>API: Up Up and Away, welcome Flexporters!</h1>`))
+    res.status(200).send((`<h1>API: Up Up and Away, welcome Friends!</h1>`))
 })
 
 
