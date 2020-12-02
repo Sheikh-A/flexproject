@@ -26,7 +26,6 @@ html {
 @media (max-width: 500px) {
   html {
     margin: auto;
-    margin-right: 100px;
     scroll-padding-top: auto;
   }
 }
@@ -64,6 +63,7 @@ body {
     background-size: 42%, 32%, 39%;
     transition: all 5.0s cubic-bezier(0.5, 0.05, 0.55, 0.95);
     background-repeat: repeat-y, repeat-y, repeat-y;
+    margin: auto;
   }
 }
 
@@ -134,8 +134,8 @@ label {
   #firstName {
     display: flex;
     margin-left: 100px;
-    width: 200px;
-    height: 40px;
+    width: 140px;
+    height: 20px;
 
   }
 }
@@ -227,6 +227,14 @@ footer {
 
 }
 
+@media (max-width: 500px) {
+  .data-card {
+    height: calc(200px);
+    width: 200px;
+    margin-right: 80px;
+  }
+}
+
 .country-image {
   width: 100px;
   object-fit: scale;
@@ -247,11 +255,27 @@ footer {
 
 }
 
+
+
 .petentry {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
+@media (max-width: 500px) {
+  .dog-image {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+
+  }
+}
+
+
+
+
 
 .dog-card {
   background: #fefefe;
@@ -283,6 +307,22 @@ footer {
   }
 }
 
+@media (max-width: 500px) {
+  .dog-card {
+
+    width: 200px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-left: 60px;
+    cursor: pointer;
+
+  }
+}
+
 .dog-card.selected {
   box-shadow: 0px 1px 6px 5px rgba(245, 248, 248, 0.8);
   transform: translatey(-2px);
@@ -309,20 +349,33 @@ footer {
   border: 2px solid black;
 }
 
+@media (max-width: 500px) {
+  .blackButtonDog {
+    font-size: .6rem;
+    font-weight: bold;
+    background: black;
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 0px;
+    margin-right: 50px;
+    display: flex;
+    border-radius: 8px;
+    width: 80px;
+    height: 30px;
+    border: 2px solid black;
+  }
+}
+
 .container {
   max-width: 500px;
-  width: 100%;
   margin: 0 auto;
   display:flex;
 }
 
 @media (max-width: 500px) {
   .contianer {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
     margin: 1px;
+    height: 1px;
   }
 
 }
@@ -334,14 +387,32 @@ footer {
   justify-content:space-around;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   .navigation {
-    margin: 0 auto;
-    width:10%;
-    display:flex;
-    justify-content:space-around;
+    background: #fefefe;
+    color: black;
+    width: 180px;
+    max-height: 87px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 60px;
+    cursor: pointer;
+    flex-wrap: wrap;
+    box-shadow: 0px 1px 6px -2px grey;
   }
 }
+
+/* @media (max-width: 500px) {
+  .navigation {
+    margin: auto;
+    margin-right: 90px;
+    width:10%;
+    display: flex;
+    flex-direction: column;
+  }
+} */
 
 .ship {
   display:flex;

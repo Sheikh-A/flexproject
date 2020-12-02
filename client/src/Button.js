@@ -36,15 +36,19 @@ const Button = styled.button`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     height: 20px;
-    width: 40px;
+    width: 60px;
     margin: 1px;
+    margin-left: 2px;
     border-radius: 0px;
     margin-top: 0px;
-    border: 1px solid black;
     font-size: .5rem;
     padding: 0px;
+    ${props => (props.type === "primary" ? `border: 1px solid #2196F3` : null)}
+    ${props => (props.type === "success" ? `border: 1px solid #4CAF50` : null)}
+    ${props => (props.type === "danger" ? `border: 1px solid #F44336` : null)}
+    ${props => (props.type === "warning" ? `border: 1px solid #502394` : null)}
   }
   ${props => (props.type === "primary" ? `border: 3px solid #2196F3` : null)}
   ${props => (props.type === "success" ? `border: 3px solid #4CAF50` : null)}
