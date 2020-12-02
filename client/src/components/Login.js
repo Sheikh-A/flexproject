@@ -51,7 +51,7 @@ function Login(props) {
                         </div>
                         <div>
                             <input
-                                    id="firstName"
+                                    id="secondName"
                                     onChange={handleChange}
                                     placeholder="password"
                                     value={user.password}
