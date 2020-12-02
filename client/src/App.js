@@ -32,18 +32,17 @@ function App(props) {
     // <Route path = '/flexShipment' render = {(props) => <AddShipment {...props} />} />
   return (
     <div className="App">
-      <div className="navigation">
-        { logged ? null : <NavLink to = '/register'><Button type="danger">Register</Button></NavLink>}
-        { logged ? <NavLink to = '/'><Button type="danger" onClick={logout}>Logout</Button></NavLink> : <NavLink to = '/login'><Button type="danger">Login</Button></NavLink>}
-        <NavLink to = '/flexdata'><Button type="primary" >Clients</Button></NavLink>
-        <NavLink to = '/flexshipments'><Button type="primary" >Shipments</Button></NavLink>
-        <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
-        <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
-        <NavLink to = '/countrieslist'><Button type="primary" >Countries</Button></NavLink>
-        <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
-
-
-
+      <div  className="container">
+        <div className="navigation">
+          { logged ? null : <NavLink to = '/register'><Button type="danger">Register</Button></NavLink>}
+          { logged ? <NavLink to = '/'><Button type="danger" onClick={logout}>Logout</Button></NavLink> : <NavLink to = '/login'><Button type="danger">Login</Button></NavLink>}
+          <NavLink to = '/flexdata'><Button type="primary" >Clients</Button></NavLink>
+          <NavLink to = '/flexshipments'><Button type="primary" >Shipments</Button></NavLink>
+          <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
+          <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
+          <NavLink to = '/countrieslist'><Button type="primary" >Countries</Button></NavLink>
+          <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
+        </div>
       </div>
       <Route path = '/register' component = {Register} />
       <Route path = '/login' render = {(props) => <Login {...props} setLogged={setLogged} />} />
