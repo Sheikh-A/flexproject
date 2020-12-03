@@ -173,6 +173,14 @@ label {
   width: 380px;
   border: 2px solid black;
 }
+
+@media (min-width: 2000px) {
+  .blackButton {
+    font-size: 1rem;
+  }
+}
+
+
 .blackButton:hover {
   background: white;
   color: black;
