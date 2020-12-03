@@ -5,6 +5,7 @@ function CountryList() {
 
     setTimeout(function() {
         let token = localStorage.getItem('token');
+        console.log(token);
     }, 50);
 
     const [CountryList, setCountryList] = useState([])

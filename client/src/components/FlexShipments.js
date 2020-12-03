@@ -3,8 +3,10 @@ import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 function FlexShipmentList() {
 
+
     setTimeout(function() {
         let token = localStorage.getItem('token');
+        console.log(token);
     }, 50);
 
     const [FlexShipmentList, setFlexShipmentList] = useState([])
