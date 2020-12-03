@@ -7,7 +7,7 @@ function FlexList() {
     setTimeout(function() {
         let token = localStorage.getItem('token');
         console.log(token);
-    }, 50);
+    }, 1);
 
     const [FlexList, setFlexList] = useState([])
 

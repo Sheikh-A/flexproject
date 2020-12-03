@@ -7,7 +7,7 @@ function FlexShipmentList() {
     setTimeout(function() {
         let token = localStorage.getItem('token');
         console.log(token);
-    }, 50);
+    }, 1);
 
     const [FlexShipmentList, setFlexShipmentList] = useState([])
 
