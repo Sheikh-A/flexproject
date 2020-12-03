@@ -46,7 +46,7 @@ function App(props) {
       </div>
       <Route path = '/register' component = {Register} />
       <Route path = '/login' render = {(props) => <Login {...props} setLogged={setLogged} />} />
-      <Route path = '/flexCustomer' render = {(props) => <AddClient {...props} />} />
+      <Route path = '/flexCustomer' component = {AddClient} />
       <Route path = '/countrieslist' render = {(props) => <Countries {...props} />} />
       <Route path = '/flexdata' render = {(props) => <Flex {...props} />} />
       <Route path = '/flexshipments' render = {(props) => <FlexShipments {...props} />} />

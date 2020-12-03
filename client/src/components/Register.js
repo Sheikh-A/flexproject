@@ -52,6 +52,10 @@ const SignupForm = (props) => {
           width: `300px`,
           marginLeft: `650px`,
           fontSize: `2.8rem`,
+          '@media screen and (min-width: 2000px)': {
+            fontSize: '1.8rem',
+            marginLeft: `1570px`,
+          }
         }}
       >
         Welcome
@@ -115,6 +119,9 @@ const SignupForm = (props) => {
                 padding: `15px 20px`,
                 width: `380px`,
                 border: `2px solid black`,
+                '@media screen and (min-width: 2000px)': {
+                  fontSize: '1rem',
+                }
               }}
             >
               Register
