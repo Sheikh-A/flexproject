@@ -173,6 +173,6 @@ Auth:
 - Adding in Form Validation using Yup / Formik for the Registration page 
 - Fetches data from Flex API above, link is from Heroku
 - Uses React Router
-- Styled-Components
+- Styled-Components / Material UI for design
 - Dog CEO API built into front-end for fun, this is accessable without logging in.
 - Added responsiveness to website for extra large screen @2000px and mobile view @500px
