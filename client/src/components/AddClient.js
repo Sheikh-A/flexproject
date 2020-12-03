@@ -83,18 +83,18 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 
 const signupSchema = Yup.object().shape({
   client_name: Yup.string()
-    .min(4, '**Too Short 2 characters min!')
+    .min(4, '**Too Short 4 characters min!')
     .max(20, '**Too Long 20 characters max!')
     .required('**Name is required'),
   client_segment: Yup.string()
-    .min(3, '**Too Short 4 characters min!')
-    .max(10, '**Too Long 20 characters max!')
+    .min(3, '**Too Short 3 characters min!')
+    .max(10, '**Too Long 10 characters max!')
 
     .matches(/^\b(?:SMB|Mid-Market|Enterprise|Emerging)\b$/, {
     message:
     'Must be SMB, Mid-Market, Enterprise, or Emerging',
 })
-    .required('**Password is required'),
+    .required('**Segment is required'),
 });
 
 const SignupForm = (props) => {

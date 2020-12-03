@@ -3,6 +3,10 @@ import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 function FlexList() {
 
+    setTimeout(function() {
+        let token = localStorage.getItem('token');
+    }, 50);
+
     const [FlexList, setFlexList] = useState([])
 
     useEffect(() => {
@@ -12,7 +16,8 @@ function FlexList() {
             setFlexList(res.data);
         })
         .catch(err => {
-            console.log(err)
+
+            console.log(err);
         })
     }, []);
 
@@ -27,8 +32,8 @@ function FlexList() {
                 <h3>Client Segment: {flexdata.client_segment}</h3>
             </div>
 
-        ): localStorage.getItem('token')
-        ? <h1>Loading....</h1>
+        ): setTimeout(50)
+        ? <h1>You shall not pass....</h1>
         : <h1>You shall not pass, You need to log in!</h1>
     }
 

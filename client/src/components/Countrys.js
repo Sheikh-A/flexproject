@@ -3,6 +3,10 @@ import {axiosWithAuth} from "../utils/axiosWithAuth"
 
 function CountryList() {
 
+    setTimeout(function() {
+        let token = localStorage.getItem('token');
+    }, 50);
+
     const [CountryList, setCountryList] = useState([])
 
     useEffect(() => {
@@ -12,13 +16,10 @@ function CountryList() {
             setCountryList(res.data);
         })
         .catch(err => {
+
             console.log(err)
         })
     }, []);
-
-
-
-
 
 
   return (
@@ -34,9 +35,9 @@ function CountryList() {
 
             </div>
 
-        ): localStorage.getItem('token')
-        ? <h1>Loading....</h1>
-        : <h1>Countries! You need to log in!</h1>
+        ): setTimeout(50)
+        ? <h1>You shall not pass....</h1>
+        : <h1>You shall not pass, You need to log in!</h1>
     }
 
     </div>
