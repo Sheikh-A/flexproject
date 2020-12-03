@@ -89,7 +89,7 @@ const signupSchema = Yup.object().shape({
   client_segment: Yup.string()
     .min(3, '**Too Short 4 characters min!')
     .max(10, '**Too Long 20 characters max!')
-    //.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}$/,
+
     .matches(/^\b(?:SMB|Mid-Market|Enterprise|Emerging)\b$/, {
     message:
     'Must be SMB, Mid-Market, Enterprise, or Emerging',
@@ -107,8 +107,7 @@ const SignupForm = (props) => {
     return axiosWithAuth()
       .post(`https://aliport.herokuapp.com/api/flex`, values)
       .then((res) => {
-        // window.localStorage.setItem('token', res.data.token);
-        // window.localStorage.setItem('id', res.data.id); // needed for TaskContext to make axios requests for tasks
+
         props.history.push('/flexdata');
       })
       .catch((err) => {
@@ -120,7 +119,7 @@ const SignupForm = (props) => {
 
   return (
     <Fragment>
-      {/* styling on h2 is so it lines up with the form */}
+
       <h1
         sx={{
           width: `300px`,

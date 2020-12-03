@@ -15,11 +15,11 @@ const signupSchema = Yup.object().shape({
   password: Yup.string()
     .min(4, '**Too Short 4 characters min!')
     .max(20, '**Too Long 20 characters max!')
-    //.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}$/,
+
     .matches(/^.{4,}$/, {
       message:
         'Password must be at least 4 characters long',
-    }) // regex checks if there's at least 1 digit, 1 lowercase, 1 uppercase, and at leat 8 characters
+    })
     .required('**Password is required'),
 });
 
@@ -34,7 +34,7 @@ const SignupForm = (props) => {
       .post(`https://aliport.herokuapp.com/api/auth/register`, values)
       .then((res) => {
         window.localStorage.setItem('token', res.data.token);
-        window.localStorage.setItem('id', res.data.id); // needed for TaskContext to make axios requests for tasks
+        window.localStorage.setItem('id', res.data.id);
         props.history.push('/login');
       })
       .catch((err) => {
@@ -46,7 +46,7 @@ const SignupForm = (props) => {
 
   return (
     <Fragment>
-      {/* styling on h2 is so it lines up with the form */}
+
       <h1
         sx={{
           width: `300px`,
