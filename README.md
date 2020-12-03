@@ -59,9 +59,9 @@ Admin Control: Uses middleware to check the "department" of user to see if they 
 
 | Method | Endpoint      | Description                                                                                                                                                                                                                                                            |
 | ------ | ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| POST   | /api/auth/register | Creates a `user` using the information sent inside the `body` of the request. **Hash the password** before saving the user to the database.                                                                                                                            |
-| POST   | /api/auth/login    | Use the credentials sent inside the `body` to authenticate the user. On successful login, create a new JWT with the user id as the subject and send it back to the client. If login fails, respond with the correct status code and the message: 'Incorrect Login!' |
-| GET    | /api/users/admin    | If the user is logged in, respond with an array of all the users contained in the database. Only admin can view users.
+| POST   | /api/auth/register | Creates a `user` using the information sent inside the `body` of the request. **Hashes the password** before saving the user to the database.                                                                                                                            |
+| POST   | /api/auth/login    | Uses the credentials sent inside the `body` to authenticate the user. On successful login, creates a new JWT with the user id as the subject and sends it back to the client. If login fails, responds with the correct status code           |
+| GET    | /api/users/admin    | If the user is logged in, responds with an array of all the users contained in the database. Only admin can view users.
 | DELETE | /api/users/admin/:id    | If the user is logged in as admin, will delete user with specified id.
 
 ## Backend API Overview:
