@@ -9,7 +9,7 @@ router.get('/', restricted, (req, res) => {
   };
 
   axios
-    .get('https://restcountries.eu/rest/v2/all', requestOptions)
+    .get('https://restcountries.com/v3.1/all', requestOptions)
     .then(response => {
       console.log(response.data[0].title);
       res.status(200).json(response.data);
