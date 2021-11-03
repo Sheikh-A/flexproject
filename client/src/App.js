@@ -3,7 +3,7 @@ import {Route, NavLink} from 'react-router-dom';
 import './App.css';
 import Register from './components/Register';
 import Login from './components/Login';
-import Countries from './components/Countrys';
+// import Countries from './components/Countrys';
 import Flex from './components/Flex';
 import FlexShipments from './components/FlexShipments';
 import AddClient from './components/AddClient.js';
@@ -40,14 +40,13 @@ function App(props) {
           <NavLink to = '/flexshipments'><Button type="primary" >Shipments</Button></NavLink>
           <NavLink to = '/flexCustomer'><Button type="success">Add Client</Button></NavLink>
           <NavLink to = '/flexShipment'><Button type="success">Add Shipment</Button></NavLink>
-          <NavLink to = '/countrieslist'><Button type="primary" >Countries</Button></NavLink>
           <NavLink to = '/flexpups'><Button type="warning">Flex Pups!</Button></NavLink>
         </div>
       </div>
       <Route path = '/register' component = {Register} />
       <Route path = '/login' render = {(props) => <Login {...props} setLogged={setLogged} />} />
       <Route path = '/flexCustomer' component = {AddClient} />
-      <Route path = '/countrieslist' render = {(props) => <Countries {...props} />} />
+
       <Route path = '/flexdata' render = {(props) => <Flex {...props} />} />
       <Route path = '/flexshipments' render = {(props) => <FlexShipments {...props} />} />
       <Route path = '/flexShipment' render = {(props) => <AddShipment {...props} />} />
@@ -65,3 +64,6 @@ function App(props) {
 }
 
 export default App;
+
+/* <NavLink to = '/countrieslist'><Button type="primary" >Countries</Button></NavLink> */
+/* <Route path = '/countrieslist' render = {(props) => <Countries {...props} />} /> */
