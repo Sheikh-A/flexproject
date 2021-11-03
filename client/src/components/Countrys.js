@@ -27,8 +27,8 @@ function CountryList() {
         ? CountryList.map(country =>
             <div key={country.id} className="data-card">
                 <h2>{country.name}</h2>
-                <img src={country.flags} alt="flag" className="country-image"/>
-                <h3>Country Code: {country.alpha3Code}</h3>
+                <img src={country.flag} alt="flag" className="country-image"/>
+                <h3>Country Code: {country.cca3}</h3>
                 <h3>Country Region: {country.region}</h3>
                 <h3>Country Subregion: {country.subregion}</h3>
 
